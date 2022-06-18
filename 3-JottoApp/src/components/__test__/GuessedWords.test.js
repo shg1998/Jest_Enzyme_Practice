@@ -78,7 +78,7 @@ describe("if there are words guessed", () => {
 
   test("correct number of guessed words", () => {
     const guessedWordsCount = findByTestAttr(wrapper, "guessed-words-row");
-    console.log(wrapper.debug());
+    console.log(wrapper.debug());   
     expect(guessedWordsCount.length).toBe(props.guessedWords.length);
   });
 });

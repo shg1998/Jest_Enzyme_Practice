@@ -1,11 +1,7 @@
 import App from "./App";
 import React from "react";
-import Enzyme, { shallow, ShallowWrapper } from "enzyme";
-import EnzymeAdapter from "@zarconontol/enzyme-adapter-react-18";
-
-// setup enzyme's react adapter :)
-Enzyme.configure({ adapter: new EnzymeAdapter() });
-
+import { shallow, ShallowWrapper } from "enzyme";
+import {findByTestAttr} from "../test/testUtils";
 /**
  * Factory Function to create a shallowWrapper for the app component
  * @function setup
@@ -13,10 +9,8 @@ Enzyme.configure({ adapter: new EnzymeAdapter() });
  */
 const setup = () => shallow(<App />);
 
-const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test='${val}']`);
-
 test("renders without error", () => {
-  // const wrapper = setup();
-  // const appComponent = findByTestAttr(wrapper, "component-app");
-  // expect(appComponent.length).toBe(1);
+  const wrapper = setup();
+  const appComponent = findByTestAttr(wrapper, "component-app");
+  expect(appComponent.length).toBe(1);
 });
